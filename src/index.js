@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux'
+import { render } from 'react-dom';
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
 import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import api from './middleware/api'
-import quotesApp from './reducers'
+import App from './components/App';
+// import registerServiceWorker from './registerServiceWorker';
+import todoApp from './reducers'
 
-let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, api)(createStore);
+let store =  createStore(todoApp);
 
-let store = createStoreWithMiddleware(quotesApp);
+// let createStoreWithMiddleware = applyMiddleware(thunkMiddleware, api)(createStore);
 
-ReactDOM.render((
-<Provider store={store}>
-  <App />
-</Provider>
+// let store = createStoreWithMiddleware(quotesApp);
+
+render((
+  <Provider store={store}>
+    <App />
+  </Provider>
 ), document.getElementById('root'));
 
-registerServiceWorker();
+// registerServiceWorker();
