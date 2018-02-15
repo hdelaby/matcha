@@ -1,42 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Login from './containers/Login';
+import React from 'react'
+import Footer from './Footer'
+import AddTodo from '../containers/AddTodo'
+import VisibleTodoList from '../containers/VisibleTodoList'
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Home</h2>
-      </div>
-    )
-  };
-}
+const App = () => (
+  <div>
+    <AddTodo />
+    <VisibleTodoList />
+    <Footer />
+  </div>
+)
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Home />
-        <Login />
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string,
-}
-
-function mapStateToProps(state) {
-  const { isAuthenticated, errorMessage } = state;
-
-  return {
-    isAuthenticated,
-    errorMessage
-  };
-}
-
-export default connect(mapStateToProps)(App)
+export default App
