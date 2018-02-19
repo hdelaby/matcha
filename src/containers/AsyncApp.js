@@ -22,7 +22,6 @@ class AsyncApp extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('did update')
     if (this.props.selectedSubreddit !== prevProps.selectedSubreddit) {
       const { dispatch, selectedSubreddit } = this.props;
       dispatch(fetchPostsIfNeeded(selectedSubreddit))
@@ -30,7 +29,6 @@ class AsyncApp extends Component {
   }
 
   handleChange(nextSubreddit) {
-    console.log('did change')
     this.props.dispatch(selectSubreddit(nextSubreddit))
     this.props.dispatch(fetchPostsIfNeeded(nextSubreddit))
   }
