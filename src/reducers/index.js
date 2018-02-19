@@ -58,4 +58,9 @@ function postsBySubreddit(state = {}, action) {
   }
 }
 
+const rootReducer = combineReducers({
+  postsBySubreddit,
+  selectSubreddit
+})
+
 export default todoApp;
